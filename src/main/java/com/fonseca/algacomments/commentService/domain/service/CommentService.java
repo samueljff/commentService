@@ -46,7 +46,7 @@ public class CommentService {
     }
 
     public Page<CommentOutput> getAllComments(Pageable pageable) {
-        return commentRepository.findAll(pageable)
+        return commentRepository.findAllOrderByCreatedAtDesc(pageable)
                 .map(this::mapToOutput);
     }
 

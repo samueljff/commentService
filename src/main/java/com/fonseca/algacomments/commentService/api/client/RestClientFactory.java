@@ -27,6 +27,7 @@ public class RestClientFactory {
     private ClientHttpRequestFactory generateClientHttpRequestFactory() {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
 
+        // Timeout de leitura de 5 segundos conforme especificação
         factory.setReadTimeout(Duration.ofSeconds(5));
         factory.setConnectTimeout(Duration.ofSeconds(3));
 
