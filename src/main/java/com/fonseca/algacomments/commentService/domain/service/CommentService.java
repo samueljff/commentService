@@ -39,13 +39,13 @@ public class CommentService {
         return mapToOutput(savedComment);
     }
 
-    public CommentOutput getCommentById(UUID id) {
+    public CommentOutput findCommentById(UUID id) {
         Comment comment = commentRepository.findById(id)
                 .orElseThrow(CommentNotFoundException::new);
         return mapToOutput(comment);
     }
 
-    public Page<CommentOutput> getAllComments(Pageable pageable) {
+    public Page<CommentOutput> findAllComments(Pageable pageable) {
         return commentRepository.findAllOrderByCreatedAtDesc(pageable)
                 .map(this::mapToOutput);
     }

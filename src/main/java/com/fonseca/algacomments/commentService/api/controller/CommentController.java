@@ -28,12 +28,12 @@ public class CommentController {
     }
 
     @GetMapping("/{id}")
-    public CommentOutput getCommentById(@PathVariable String id) {
-        return commentService.getCommentById(UUID.fromString(id));
+    public CommentOutput findCommentById(@PathVariable String id) {
+        return commentService.findCommentById(UUID.fromString(id));
     }
 
     @GetMapping
-    public Page<CommentOutput> getAllComments(Pageable pageable) {
-        return commentService.getAllComments(pageable);
+    public Page<CommentOutput> findAllComments(Pageable pageable) {
+        return commentService.findAllComments(pageable);
     }
 }
